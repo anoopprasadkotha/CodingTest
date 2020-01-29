@@ -24,7 +24,7 @@ namespace CodingTest.Helper
         private const string TotalCost= "{Annual Premium plus Credit Charge}";
         #endregion
 
-        /// <summary>
+               /// <summary>
         /// Calculate the variables for a member for a given annual premium.
         /// </summary>
         /// <param name="annualPremium"></param>
@@ -38,13 +38,17 @@ namespace CodingTest.Helper
             var creditCharge = RoundUp(annualPremium * .05, 2);
 
             var monthlyInst = ((creditCharge + annualPremium )/ 12).ToString("0.00");
-
             var totalAmount = RoundUp((creditCharge + annualPremium), 2);
+
+            var firstMonthPremium = RoundUp(totalAmount - (11 * Convert.ToDouble(monthlyInst)), 2);
+            var buffer = firstMonthPremium;
+            firstMonthPremium = firstMonthPremium < Convert.ToDouble(monthlyInst) ? firstMonthPremium + .11 : firstMonthPremium;
+            monthlyInst = buffer < Convert.ToDouble(monthlyInst) ? (Convert.ToDouble(monthlyInst)-.01).ToString(): monthlyInst;
 
             return new RenewalModel() { CreditCharge = RoundUp(annualPremium * .05, 2).ToString(),
                 TotalPremium = RoundUp((creditCharge + annualPremium), 2).ToString(),
-                AverageMonthlyPremium = ((creditCharge + annualPremium) / 12).ToString("0.00"),
-                IntialMonthlyPremium = RoundUp(totalAmount - (11 * Convert.ToDouble(monthlyInst)),2),
+                AverageMonthlyPremium = monthlyInst,
+                IntialMonthlyPremium = firstMonthPremium,
                 RemainingMonthlyPremium= (11 * Convert.ToDouble(monthlyInst)).ToString("0.00")
             };
         }
