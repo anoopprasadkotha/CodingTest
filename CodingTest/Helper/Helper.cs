@@ -20,7 +20,8 @@ namespace CodingTest.Helper
         private const string CreditCharge = "{Credit Charge}";
         private const string Payout = "{Payout Amount}";
         private const string IntialMonthly = "{Initial Monthly Payment Amount}";
-        private const string OtherPayment = "{Other Monthly Payments Amount}"; 
+        private const string OtherPayment = "{Other Monthly Payments Amount}";
+        private const string TotalCost= "{Annual Premium plus Credit Charge}";
         #endregion
 
         /// <summary>
@@ -108,9 +109,12 @@ namespace CodingTest.Helper
 
             if (File.ToString().Contains(OtherPayment))
             {
-                File = File.Replace(OtherPayment, viewModel.RenewDetails.IntialMonthlyPremium.ToString());
+                File = File.Replace(OtherPayment, viewModel.RenewDetails.AverageMonthlyPremium.ToString());
             }
-
+            if (File.ToString().Contains(TotalCost))
+            {
+                File = File.Replace(TotalCost, viewModel.RenewDetails.TotalPremium.ToString());
+            }
             return File.ToString();
         }
 
