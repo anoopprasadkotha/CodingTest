@@ -8,6 +8,6 @@ namespace CodingTest.Models
     public class ViewModel
     {
         public RenewalModel RenewDetails { get; set; }
-        public CustomerDetails MemberDetils { get; set; }
+        public CustomerDetails MemberDetails { get; set; }
     }
 }

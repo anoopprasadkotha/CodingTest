@@ -156,12 +156,10 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Helper\CsvReader.cs" />
-    <Compile Include="Helper\CsvToClassHelper.cs" />
     <Compile Include="Helper\FileOperationsHelper.cs" />
     <Compile Include="Helper\Helper.cs" />
     <Compile Include="Helper\Logger.cs" />
     <Compile Include="Helper\ModelBinder.cs" />
-    <Compile Include="Helper\ValidatorHelper.cs" />
     <Compile Include="Interface\ICsvReader.cs" />
     <Compile Include="Interface\ILogger.cs" />
     <Compile Include="Models\CustomerDetails.cs" />

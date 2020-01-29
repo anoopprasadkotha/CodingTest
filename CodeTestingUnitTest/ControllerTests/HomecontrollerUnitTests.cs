@@ -20,11 +20,6 @@ namespace CodeTestingUnitTest.ControllerTests
 
         }
 
-        //[TestMethod]
-        //public void Upload_NOFile_Upload()
-        //{
-
-        //}
         [TestMethod]
         public void Upload_Filetype_NotCSv()
         {
@@ -75,29 +70,6 @@ namespace CodeTestingUnitTest.ControllerTests
 
         }
 
-        //{
-        // var httpContextMock = new Mock<HttpContextBase>();
-        //var serverMock = new Mock<HttpServerUtilityBase>();
-        //serverMock.Setup(x => x.MapPath("~/UserMedia/UploadedStickers/")).Returns(Path.GetFullPath(@"\testfile"));
-        //    httpContextMock.Setup(x => x.Server).Returns(serverMock.Object);
-        ////var sut = new HomeController();
-        ////sut.ControllerContext = new ControllerContext(httpContextMock.Object, new RouteData(), sut);
-        //stickerManagerRepository.GetHttpContext = httpContextMock.Object;
-
-        //    string filePath = Path.GetFullPath(@"testfile\IDserver_logotransparent.png");
-        //FileStream fileStream = new FileStream(filePath, FileMode.Open);
-        //Mock<HttpPostedFileBase> uploadedFile = new Mock<HttpPostedFileBase>();
-        //uploadedFile.Setup(x => x.FileName).Returns("IDserver_logotransparent.png");
-        //uploadedFile.Setup(x => x.ContentType).Returns("image/png");
-        //uploadedFile.Setup(x => x.InputStream).Returns(fileStream);
-        //HttpPostedFileBase[] httpPostedFileBases = { uploadedFile.Object };
-
-        ////Act
-        //DisplayMessage message2 = stickerManagerRepository.CreateStickerFolder(new Content { ContentType = ContentType.Folder, Name = "UnitTest1" }, httpPostedFileBases, "testcase@user.net");
-
-        //// Assert
-        //Assert.AreEqual(message2.message, "Folder Image dimention is not correct");
-        //}
 
 
     }

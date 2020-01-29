@@ -76,20 +76,20 @@ namespace CodingTest.Helper
             }
             if (File.ToString().Contains(ToNameFieldValue))
             {
-                File = File.Replace(ToNameFieldValue, viewModel.MemberDetils.Title + " " + viewModel.MemberDetils.FirstName);
+                File = File.Replace(ToNameFieldValue, viewModel.MemberDetails.Title + " " + viewModel.MemberDetails.FirstName);
             }
             if (File.ToString().Contains(DearNameFieldvalue))
             {
-                File = File.Replace(DearNameFieldvalue, viewModel.MemberDetils.Title + " " + viewModel.MemberDetils.SurName);
+                File = File.Replace(DearNameFieldvalue, viewModel.MemberDetails.Title + " " + viewModel.MemberDetails.SurName);
             }
             if (File.ToString().Contains(ProductName))
             {
-                File = File.Replace(ProductName, viewModel.MemberDetils.ProductName);
+                File = File.Replace(ProductName, viewModel.MemberDetails.ProductName);
 
             }
             if (File.ToString().Contains(AnnualPremium))
             {
-                File = File.Replace(AnnualPremium, viewModel.MemberDetils.AnnualPremium.ToString());
+                File = File.Replace(AnnualPremium, viewModel.MemberDetails.AnnualPremium.ToString());
             }
             if (File.ToString().Contains(CreditCharge))
             {

@@ -1,5 +1,6 @@
 ﻿using CodingTest.Models;
 using System;
+using System.Configuration;
 using System.IO;
 using System.Text;
 using System.Web;
@@ -8,6 +9,7 @@ namespace CodingTest.Helper
 {
     public static class FileOperationsHelper
     {
+        public static string destinationFilePath = ConfigurationManager.AppSettings["Destination_File_Path"];
         /// <summary>
         /// Method used to read from template
         /// </summary>
@@ -28,7 +30,7 @@ namespace CodingTest.Helper
         public static void CreateFile(ViewModel viewModel,string file)
         {
             // C: \Users\Anoop Prasad Kotha\source\repos\CodingTest\CodingTest\Models\CustomerDetails.cs
-            string path = "D:/" + viewModel.MemberDetils.Id + viewModel.MemberDetils.FirstName + ".txt";
+            string path = destinationFilePath + viewModel.MemberDetails.Id + viewModel.MemberDetails.FirstName + ".txt";
 
             //Create the file only if it doesnt exists.
             if (!System.IO.File.Exists(path))

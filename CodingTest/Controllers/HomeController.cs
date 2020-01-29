@@ -18,8 +18,7 @@ namespace CodingTest.Controllers
 
         public HomeController()
         {
-            ////using property injection need
-            //_csvReader = new CsvReader();
+            //using property injection need
             _csvReader = new CsvReader();
         }
 
@@ -65,93 +64,22 @@ namespace CodingTest.Controllers
                             GenerateFiles(customer);
                         }
 
-                        //using (TextReader txt = new StreamReader(stream))
-                        //{
-                        //    using (var csv = new CsvReader(txt))
-                        //    {
-                        //        var records = csv.Ge
-                        //            return records.ToList();
-                        //    }
-                        //}
-                        #region remove before deploying
-
-                        //public int Id { get; set; }
-                        //        public string Title { get; set; }
-                        //        public string FirstName { get; set; }
-                        //        public string SurName { get; set; }
-                        //        public string ProductName { get; set; }
-                        //        public long PayoutAmount { get; set; }
-                        //        public long AnnualPremium { get; set; }
-                        //using (TextReader txt = new StreamReader(stream))
-                        //{
-                        //    using (var csv = new CsvReader(txt))
-                        //    {
-                        //        var records = csv.
-                        //        return records.ToList();
-                        //    }
-                        //}
-                        //if (csvTable.Rows.Count > 0)
-                        //{
-                        //    var records= csvReader.
-                        //    while ()
-                        //    { }
-                        //}
-                        //if (reader.HasRows)
-                        //{
-                        //    while (reader.Read())
-                        //    {
-                        //        Console.WriteLine("{0}\t{1}", reader.GetInt32(0),
-                        //            reader.GetString(1));
-                        //    }
-                        //}
-                        //else
-                        //{
-                        //    Console.WriteLine("No rows found.");
-                        //}
-                        //reader.Close(); 
-                        #endregion
-
                         return View(csvTable);
                     }
                     else
                     {
+                        // displays error if differnt format file is 
                         ModelState.AddModelError("File", "This file format is not supported");
                         return View();
                     }
                 }
                 else
                 {
+                    // displays error if upload 
                     ModelState.AddModelError("File", "Please Upload Your file");
                 }
             }
             return View();
-        }
-
-        private static DataTable ExcelToDataTable(HttpPostedFileBase upload)
-        {
-            Stream stream = upload.InputStream;
-            DataTable csvTable = new DataTable();
-            using (StreamReader sr = new StreamReader(stream))
-            {
-                csvTable = new DataTable();
-                string[] headers = sr.ReadLine().Split(',');
-                for (int i = 0; i < headers.Count(); i++)
-                {
-                    csvTable.Columns.Add();
-                }
-                while (!sr.EndOfStream)
-                {
-                    string[] rows = sr.ReadLine().Split(',');
-                    DataRow dr = csvTable.NewRow();
-                    for (int i = 0; i < rows.Count(); i++)
-                    {
-                        dr[i] = rows[i];
-                    }
-                    csvTable.Rows.Add(dr);
-                }
-            }
-
-            return csvTable;
         }
 
 
